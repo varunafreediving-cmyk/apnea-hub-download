@@ -22,6 +22,6 @@ jobs:
           for f in $(ls parts/*.part-aa | sed 's/\.part-aa$//'); do cat "$f".part-* > "out/$(basename "$f")"; done
           (cd out && sha256sum *) > out/SHA256SUMS.txt
           cat out/SHA256SUMS.txt
-          gh release view "v$VER" >/dev/null 2>&1 || gh release create "v$VER" --target main --title "Apnea Hub $VER" --notes "Windows: .exe / Mac: .dmg. 처음 실행 방법: https://apnea-hub-site.vercel.app/guide.html"
+          gh release view "v$VER" >/dev/null 2>&1 || gh release create "v$VER" --target main --title "Apnea Hub $VER" --notes "Windows: .exe / Mac: .dmg. 처음 실행 방법: https://apnea-hub-site-varuna-s-projects.vercel.app/guide.html"
           gh release upload "v$VER" out/* --clobber
           git push origin --delete upload-tmp
